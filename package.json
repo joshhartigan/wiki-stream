@@ -1,0 +1,16 @@
+{
+  "name": "wiki-stream",
+  "version": "0.0.1",
+  "description": "Explore the river of information that is Wikipedia",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshhartigan/wiki-stream"
+  },
+  "author": "Josh Hartigan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshhartigan/wiki-stream/issues"
+  },
+  "homepage": "https://github.com/joshhartigan/wiki-stream"
+}
