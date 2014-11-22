@@ -1,8 +1,11 @@
 {
   "name": "wiki-stream",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Explore the river of information that is Wikipedia",
   "main": "index.js",
+  "bin": {
+    "wikistream": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/joshhartigan/wiki-stream"
