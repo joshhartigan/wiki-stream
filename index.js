@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+console.log() // seperate output from rest of shell activity
 
 var cheerio = require('cheerio')
 var req = require('request')
@@ -14,9 +15,11 @@ if (!search) {
   console.log(search + '...')
 }
 
+var visitedPages = []
+
 function getWikiPage(name) {
   var wikiPage = 'http://en.wikipedia.org/wiki/' +
-    search.replace(' ', '_')
+    name.replace(' ', '_')
   console.log(wikiPage)
 
   req( wikiPage, function(err, response, data) {
@@ -35,13 +38,22 @@ function getWikiPage(name) {
     if (response.statusCode === 200) {
       var $ = cheerio.load(data)
 
-      var firstLinkName = $('p a')[0].children[0].data
-      console.log(firstLinkName + '...')
+      var validLinks = $('p>a')
 
-      var firstLink = $('p a')[0].attribs.href.replace('/wiki', '')
-      console.log(firstLink)
+      var firstLinkName = validLinks[0].children[0].data
+      console.log('\nlinks to ' + firstLinkName + '...')
+
+      var firstLink = validLinks[0].attribs.href.replace('/wiki/', '')
+
+      if ( visitedPages.indexOf(firstLink) >= 0 ) {
+        console.log('You reached full circle! The stream ends.')
+      } else {
+        getWikiPage(firstLink)
+        visitedPages.push(firstLink)
+      }
     }
 
   })
 }
+
 
