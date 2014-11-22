@@ -1,6 +1,6 @@
 {
   "name": "wiki-stream",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Explore the river of information that is Wikipedia",
   "main": "index.js",
   "bin": {
