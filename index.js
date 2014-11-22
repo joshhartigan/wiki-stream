@@ -39,11 +39,12 @@ function getWikiPage(name) {
       var $ = cheerio.load(data)
 
       var validLinks = $('p>a')
+      var linkIndex = Math.floor( ( Math.random() * $('p>a').length ) + 1 )
 
-      var firstLinkName = validLinks[0].children[0].data
+      var firstLinkName = validLinks[linkIndex].children[0].data
       console.log('\nlinks to ' + firstLinkName + '...')
 
-      var firstLink = validLinks[0].attribs.href.replace('/wiki/', '')
+      var firstLink = validLinks[linkIndex].attribs.href.replace('/wiki/', '')
 
       if ( visitedPages.indexOf(firstLink) >= 0 ) {
         console.log('You reached full circle! The stream ends.')

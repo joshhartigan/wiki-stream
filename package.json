@@ -1,6 +1,6 @@
 {
   "name": "wiki-stream",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Explore the river of information that is Wikipedia",
   "main": "index.js",
   "repository": {
