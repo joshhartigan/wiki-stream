@@ -49,8 +49,12 @@ function getWikiPage(name) {
       if ( visitedPages.indexOf(firstLink) >= 0 ) {
         console.log('You reached full circle! The stream ends.')
       } else {
-        getWikiPage(firstLink)
         visitedPages.push(firstLink)
+        try {
+          getWikiPage(firstLink)
+        } catch (e) {
+          process.exit(1)
+        }
       }
     }
 
