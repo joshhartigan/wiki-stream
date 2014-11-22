@@ -12,5 +12,9 @@
   "bugs": {
     "url": "https://github.com/joshhartigan/wiki-stream/issues"
   },
-  "homepage": "https://github.com/joshhartigan/wiki-stream"
+  "homepage": "https://github.com/joshhartigan/wiki-stream",
+  "dependencies": {
+    "cheerio": "^0.18.0",
+    "request": "^2.48.0"
+  }
 }
