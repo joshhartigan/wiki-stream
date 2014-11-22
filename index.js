@@ -41,8 +41,12 @@ function getWikiPage(name) {
       var validLinks = $('p>a')
       var linkIndex = Math.floor( ( Math.random() * $('p>a').length ) + 1 )
 
-      var firstLinkName = validLinks[linkIndex].children[0].data
-      console.log('\nlinks to ' + firstLinkName + '...')
+      try {
+        var firstLinkName = validLinks[linkIndex].children[0].data
+        console.log('\nlinks to ' + firstLinkName + '...')
+      } catch(e) {
+        process.exit(1)
+      }
 
       var firstLink = validLinks[linkIndex].attribs.href.replace('/wiki/', '')
 
@@ -50,11 +54,7 @@ function getWikiPage(name) {
         console.log('You reached full circle! The stream ends.')
       } else {
         visitedPages.push(firstLink)
-        try {
-          getWikiPage(firstLink)
-        } catch (e) {
-          process.exit(1)
-        }
+        getWikiPage(firstLink)
       }
     }
 
