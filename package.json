@@ -1,5 +1,6 @@
 {
   "name": "wiki-stream",
+  "preferGlobal": true,
   "version": "0.0.5",
   "description": "Explore the river of information that is Wikipedia",
   "main": "index.js",
